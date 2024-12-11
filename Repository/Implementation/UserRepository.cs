@@ -1,6 +1,9 @@
 ﻿using Domain.Identity;
 using Microsoft.EntityFrameworkCore;
+using Repository;
 using Repository.Interface;
+using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -8,13 +11,13 @@ namespace Repository.Implementation
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationDbContext _context;
-        private Microsoft.EntityFrameworkCore.DbSet<BookStoreApplicationUser> entities;
+        private readonly ApplicationDbContext context;
+        private DbSet<BookStoreApplicationUser> entities;
         string errorMessage = string.Empty;
 
         public UserRepository(ApplicationDbContext context)
         {
-            _context = context;
+            context = context;
             entities = context.Set<BookStoreApplicationUser>();
             //entities = context.Set<BookStoreApplicationUser>();
         }
@@ -54,46 +57,6 @@ namespace Repository.Implementation
         }
 
         public void Delete(BookStoreApplicationUser entity)
-        {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-            entities.Remove(entity);
-            context.SaveChanges();
-        }
-
-        IEnumerable<BookStoreApplicationUser> IUserRepository.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        BookStoreApplicationUser IUserRepository.Get(string? id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Insert(T entity)
-        {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-            entities.Add(entity);
-            context.SaveChanges();
-        }
-
-        public void Update(T entity)
-        {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-            entities.Update(entity);
-            context.SaveChanges();
-        }
-
-        public void Delete(T entity)
         {
             if (entity == null)
             {

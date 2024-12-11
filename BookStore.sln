@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{239220C9-9777-4833-B32D-C59A33665BC2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{E0C58D04-2E6A-4B14-87AE-9CA39FED4DF2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{239220C9-9777-4833-B32D-C59A33665BC2} = {239220C9-9777-4833-B32D-C59A33665BC2}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{B8A5E9AE-8196-48E9-9A20-5EE3295580CD}"
 EndProject
