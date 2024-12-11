@@ -1,11 +1,6 @@
 ﻿using Domain.Identity;
 using Microsoft.EntityFrameworkCore;
-using Repository;
 using Repository.Interface;
-using System.Collections.Generic;
-using System.Linq;
-
-
 
 namespace Repository.Implementation
 {
