@@ -1,5 +1,7 @@
 ﻿using Domain.Domain;
 using Microsoft.Extensions.Options;
+using MimeKit;
+using SendGrid.Helpers.Mail;
 using Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -32,19 +34,19 @@ namespace Service.Implementation
 
             try
             {
-                using (var smtp = new MailKit.Net.Smtp.SmtpClient())
-                {
-                    var socketOptions = MailKit.Security.SecureSocketOptions.Auto;
-                    await smtp.ConnectAsync(_mailSettings.SmtpServer, 587, socketOptions);
+                //using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+                //{
+                //    var socketOptions = MailKit.Security.SecureSocketOptions.Auto;
+                //    await smtp.ConnectAsync(_mailSettings.SmtpServer, 587, socketOptions);
 
-                    if (!string.IsNullOrEmpty(_mailSettings.SmtpUserName))
-                    {
-                        await smtp.AuthenticateAsync(_mailSettings.SmtpUserName, _mailSettings.SmtpPassword);
-                    }
+                //    if (!string.IsNullOrEmpty(_mailSettings.SmtpUserName))
+                //    {
+                //        await smtp.AuthenticateAsync(_mailSettings.SmtpUserName, _mailSettings.SmtpPassword);
+                //    }
 
-                    await smtp.SendAsync(emailMessage);
-                    await smtp.DisconnectAsync(true);
-                }
+                //    await smtp.SendAsync(emailMessage);
+                //    await smtp.DisconnectAsync(true);
+                //}
             }
             catch (Exception ex)
             {
